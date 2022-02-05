@@ -3,13 +3,12 @@
 namespace Jkbennemann\Features\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Database\QueryException;
 use Jkbennemann\Features\Models\Enums\FeatureStatus;
 use Jkbennemann\Features\Models\Feature;
 
 class FeatureListCommand extends Command
 {
-    public $signature = 'features:list';
+    public $signature = 'feature:list';
 
     public $description = 'List all features';
 

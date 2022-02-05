@@ -7,7 +7,7 @@ use Jkbennemann\Features\Models\Feature;
 
 class FeatureDeactivateCommand extends Command
 {
-    public $signature = 'features:deactivate {identifier}';
+    public $signature = 'feature:deactivate {identifier}';
 
     public $description = 'Dectivates a feature';
 

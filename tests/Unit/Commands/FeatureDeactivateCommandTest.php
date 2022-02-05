@@ -14,7 +14,7 @@ it('it can deactivate a feature with the command', function () {
         'status' => FeatureStatus::ACTIVE,
     ]);
 
-    expect(Artisan::call('features:deactivate', ['identifier' => 1]))
+    expect(Artisan::call('feature:deactivate', ['identifier' => 1]))
         ->toBe(0);
 
     $feature = $feature->fresh();
@@ -29,7 +29,7 @@ it('it can deactivate a feature by slug', function () {
         'status' => FeatureStatus::ACTIVE,
     ]);
 
-    expect(Artisan::call('features:deactivate', ['identifier' => $feature->slug]))
+    expect(Artisan::call('feature:deactivate', ['identifier' => $feature->slug]))
         ->toBe(0);
 
     $feature = $feature->fresh();

@@ -9,7 +9,7 @@ use Jkbennemann\Features\Models\Feature;
 
 class FeatureAddCommand extends Command
 {
-    public $signature = 'features:add {name} {description?} {--status}';
+    public $signature = 'feature:add {name} {description?} {--status}';
 
     public $description = 'Creates a new feature';
 

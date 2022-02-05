@@ -14,7 +14,7 @@ it('it can activate a feature with the command', function () {
         'status' => FeatureStatus::INACTIVE,
     ]);
 
-    expect(Artisan::call('features:activate', ['identifier' => 1]))
+    expect(Artisan::call('feature:activate', ['identifier' => 1]))
         ->toBe(0);
 
     $feature = $feature->fresh();
@@ -29,7 +29,7 @@ it('it can activate a feature by slug', function () {
         'status' => FeatureStatus::INACTIVE,
     ]);
 
-    expect(Artisan::call('features:activate', ['identifier' => $feature->slug]))
+    expect(Artisan::call('feature:activate', ['identifier' => $feature->slug]))
         ->toBe(0);
 
     $feature = $feature->fresh();

@@ -9,7 +9,7 @@ use Jkbennemann\Features\Models\Enums\FeatureStatus;
 use Jkbennemann\Features\Models\Feature;
 
 it('it can create a feature with the command', function () {
-    expect(Artisan::call('features:add', [
+    expect(Artisan::call('feature:add', [
         'name' => 'New feature',
         'description' => 'Test Feature',
     ]))->toBe(0);

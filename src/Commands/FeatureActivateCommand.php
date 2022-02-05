@@ -7,7 +7,7 @@ use Jkbennemann\Features\Models\Feature;
 
 class FeatureActivateCommand extends Command
 {
-    public $signature = 'features:activate {identifier}';
+    public $signature = 'feature:activate {identifier}';
 
     public $description = 'Activates a feature';
 
