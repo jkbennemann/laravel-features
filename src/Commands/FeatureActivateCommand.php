@@ -27,6 +27,7 @@ class FeatureActivateCommand extends Command
             return self::FAILURE;
         }
 
+        /** @var Feature $feature */
         $feature->activate();
 
         $this->comment('All done');

@@ -20,6 +20,7 @@ class FeatureAddCommand extends Command
         $status = $this->option('status');
 
         try {
+            /** @var Feature $feature */
             $feature = Feature::create([
                 'name' => $name,
                 'description' => $description ?: null,

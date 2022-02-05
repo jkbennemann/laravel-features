@@ -27,6 +27,7 @@ class FeatureDeactivateCommand extends Command
             return self::FAILURE;
         }
 
+        /** @var Feature $feature */
         $feature->deactivate();
 
         $this->comment('All done');

@@ -2,6 +2,7 @@
 
 namespace Jkbennemann\Features\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -15,6 +16,7 @@ use Jkbennemann\Features\Models\Traits\HasSlug;
  * @property string $slug
  * @property string $description
  * @property int $status
+ * @property Carbon $created_at
  */
 class Feature extends Model
 {

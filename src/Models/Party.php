@@ -2,6 +2,7 @@
 
 namespace Jkbennemann\Features\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +18,7 @@ use Jkbennemann\Features\Models\Traits\HasSlug;
  * @property string $description
  * @property int $status
  * @property Collection $features
+ * @property Carbon $created_at
  */
 class Party extends Model
 {

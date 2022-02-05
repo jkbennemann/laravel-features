@@ -20,6 +20,7 @@ class PartyAddCommand extends Command
         $status = $this->option('status');
 
         try {
+            /** @var Party $party */
             $party = Party::create([
                 'name' => $name,
                 'description' => $description ?: null,
