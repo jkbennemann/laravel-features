@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('feature_party', function (Blueprint $table) {
-            $type = config('features.user_model_type') ? 'uuid' : 'unsignedBigInteger';
+            $type = config('features.user_model_type') === 'uuid' ? 'uuid' : 'unsignedBigInteger';
 
             $table->{$type}('feature_id');
             $table->{$type}('party_id');

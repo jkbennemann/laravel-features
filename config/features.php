@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'user_model_type' => null,      //null or uuid
+    'user_model_type' => 'id',      //id or uuid
 
     'middleware' => [
         /*
