@@ -16,8 +16,10 @@ class InstallCommand extends Command
         do {
             $answer = $this->askWithCompletion(
                 'What is the type of your User model? Possible values are: id,uuid',
-                $answers, 'id');
-        } while(!in_array($answer, $answers, true));
+                $answers,
+                'id'
+            );
+        } while (! in_array($answer, $answers, true));
 
         $this->callSilent('vendor:publish', ['--tag' => 'features-config', '--force' => true]);
 
