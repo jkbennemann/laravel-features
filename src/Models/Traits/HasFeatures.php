@@ -14,7 +14,7 @@ trait HasFeatures
 {
     public function giveFeature(...$features): self
     {
-        $objects = collect($features)->filter(function($item){
+        $objects = collect($features)->filter(function ($item) {
             return $item instanceof Feature;
         });
 
@@ -22,7 +22,7 @@ trait HasFeatures
             features: Arr::flatten($features)
         );
 
-        $objects->each(function($item) use ($features){
+        $objects->each(function ($item) use ($features) {
             $features->add($item);
         });
 
@@ -33,7 +33,7 @@ trait HasFeatures
 
     public function removeFeature(...$features): self
     {
-        $objects = collect($features)->filter(function($item){
+        $objects = collect($features)->filter(function ($item) {
             return $item instanceof Feature;
         });
 
@@ -41,7 +41,7 @@ trait HasFeatures
             features: Arr::flatten($features)
         );
 
-        $objects->each(function($item) use ($features){
+        $objects->each(function ($item) use ($features) {
             $features->add($item);
         });
 
@@ -72,9 +72,10 @@ trait HasFeatures
     public function hasFeatureDirect(Feature|string $feature, bool $activeOnly = true): bool
     {
         if ($feature instanceof Feature) {
-            if ($activeOnly && !$feature->isActive()) {
+            if ($activeOnly && ! $feature->isActive()) {
                 return false;
             }
+
             return $this->features->contains($feature);
         }
 
@@ -94,7 +95,7 @@ trait HasFeatures
     public function hasFeatureThroughParty(Feature|string $feature, bool $activeOnly = true): bool
     {
         if ($feature instanceof Feature) {
-            if ($activeOnly && !$feature->isActive()) {
+            if ($activeOnly && ! $feature->isActive()) {
                 return false;
             }
 
@@ -137,6 +138,7 @@ trait HasFeatures
             if ($party instanceof Party) {
                 return $this->parties->contains($party);
             }
+
             return $this->parties->contains('slug', $party);
         }
 
@@ -145,7 +147,7 @@ trait HasFeatures
 
     public function leaveParty(Party|string $party): self
     {
-        if (!($party instanceof Party)) {
+        if (! ($party instanceof Party)) {
             $party = $this->getAllparties(
                 parties: [$party]
             );
@@ -159,7 +161,7 @@ trait HasFeatures
 
     public function joinParty(...$parties): self
     {
-        $objects = collect($parties)->filter(function($item){
+        $objects = collect($parties)->filter(function ($item) {
             return $item instanceof Party;
         });
 
@@ -167,7 +169,7 @@ trait HasFeatures
             parties: Arr::flatten($parties)
         );
 
-        $objects->each(function($item) use ($parties){
+        $objects->each(function ($item) use ($parties) {
             $parties->add($item);
         });
 

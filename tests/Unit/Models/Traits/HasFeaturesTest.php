@@ -42,7 +42,7 @@ it('can assign a feature to a user by object', function (): void {
         ->toBeTrue();
 });
 
-it('can verify hasFeature by object', function(): void {
+it('can verify hasFeature by object', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
