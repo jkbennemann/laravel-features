@@ -1,19 +1,7 @@
-# This is my package laravel-features
+# Laravel Features
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/jkbennemann/laravel-features.svg?style=flat-square)](https://packagist.org/packages/jkbennemann/laravel-features)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/jkbennemann/laravel-features/run-tests?label=tests)](https://github.com/jkbennemann/laravel-features/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/jkbennemann/laravel-features/Check%20&%20fix%20styling?label=code%20style)](https://github.com/jkbennemann/laravel-features/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/jkbennemann/laravel-features.svg?style=flat-square)](https://packagist.org/packages/jkbennemann/laravel-features)
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-features.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-features)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This packages provides a simple to use possibility to introduce functionality (`features`) 
+to specific users or groups of users (`parties`)
 
 ## Installation
 
@@ -40,6 +28,12 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'middleware' => [
+        'mode' => 'abort',
+        'redirect_route' => '/',
+        'status_code' => 404,
+        'message' => '',
+    ],
 ];
 ```
 
@@ -52,8 +46,41 @@ php artisan vendor:publish --tag="laravel-features-views"
 ## Usage
 
 ```php
-$features = new Jkbennemann\Features();
-echo $features->echoPhrase('Hello, Jkbennemann!');
+use \Jkbennemann\Features\Models\Enums\FeatureStatus;
+use \Jkbennemann\Features\Models\Feature;
+
+$feature = Features::create([
+    'name' => 'Functionality A',
+    'description' => 'This is a new feature', //optional
+    'status' => FeatureStatus::ACTIVE //optional, defaults to INACTIVE
+]);
+
+$party = Party::create([
+    'name' => 'Beta Testers',
+    'description' => 'This is a new party', //optional
+    'status' => FeatureStatus::ACTIVE //optional, defaults to INACTIVE
+]);
+
+$feature->activate();       //activates a feature
+$feature->deactivate();     //deactivates a feature
+
+$party->addFeature($feature);       //assigns a feature to a party
+$party->removeFeature($feature);    //removes a feature from a party
+
+$active = $user->hasFeature($feature);        //user has the feature which is active
+$active = $user->hasFeature('feature-slug');  //you may provide the slug of a feature
+$active = $user->hasFeature('feature-slug', false); //provide false ignore the check for active features
+$active = $user->hasFeatureThroughParty('feature-slug');    //checks if a feature is granted through a party
+
+$user->giveFeature('feature-slug');     //add specific feature to a user
+$user->removeFeature('feature-slug');   //remove specific feature
+
+$user->joinParty('party-slug');     //add a user to a party
+$user->addToParty('party-slug');    //add a user to a party
+$user->leaveParty('party-slug');    //remove a user from a party
+
+$user->belongsToParty('party-slug');    //checks if the user belongs to the party
+$user->inParty('party-slug');           //checks if the user belongs to the party
 ```
 
 ## Testing
