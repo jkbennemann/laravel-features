@@ -13,36 +13,11 @@ You can install the package via composer:
 composer require jkbennemann/laravel-features
 ```
 
-You can publish and run the migrations with:
+After you have installed the package run the following command start the 
+installation routine
 
 ```bash
-php artisan vendor:publish --tag="laravel-features-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="laravel-features-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-    'middleware' => [
-        'mode' => 'abort',
-        'redirect_route' => '/',
-        'status_code' => 404,
-        'message' => '',
-    ],
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-features-views"
+php artisan feature:install
 ```
 
 ## Usage
@@ -115,15 +90,14 @@ $user->can('feature-slug', false);    //ignores status of feature
 ```
 
 
-
 ## Ideas
 
 - [x] Blade directives for `@feature`, `@party`
 - [x] Command to update feature status
 - [x] Gate support
+- [x] Support for UUIDs for `User` model
 - [ ] Middleware to secure requests for features/parties
 - [ ] Feature expiration to tackle [carying costs](https://martinfowler.com/articles/feature-toggles.html#WorkingWithFeature-flaggedSystems)
-- [ ] Support for UUIDs for `User` model
 - [ ] Management for Parties/Features using Livewire
 
 ## Testing
