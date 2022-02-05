@@ -3,7 +3,8 @@
 namespace Jkbennemann\Features;
 
 use Illuminate\Support\Facades\Blade;
-use Jkbennemann\Features\Commands\FeaturesCommand;
+use Jkbennemann\Features\Commands\FeatureActivateCommand;
+use Jkbennemann\Features\Commands\FeatureDeactivateCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -14,6 +15,10 @@ class FeaturesServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-features')
             ->hasConfigFile()
+            ->hasCommands(
+                FeatureActivateCommand::class,
+                FeatureDeactivateCommand::class,
+            )
             ->hasMigrations(
                 'create_feature_table',
                 'create_party_table',
@@ -21,7 +26,7 @@ class FeaturesServiceProvider extends PackageServiceProvider
                 'create_feature_user_table',
                 'create_party_user_table',
             )
-            ->hasCommand(FeaturesCommand::class);
+            ->hasCommand(FeatureActivateCommand::class);
     }
 
     public function bootingPackage()

@@ -30,6 +30,10 @@ class Feature extends Model
         'status',
     ];
 
+    protected $casts = [
+        'status' => 'int'
+    ];
+
     public function isActive(): bool
     {
         return $this->status === FeatureStatus::ACTIVE;
