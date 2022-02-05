@@ -14,7 +14,7 @@ trait HasSlug
 
     public static function bootHasSlug(): void
     {
-        static::creating(static function(Model $model) {
+        static::creating(static function (Model $model) {
             $model->{HasSlug::$slug} = self::normalize($model->{HasSlug::$slugFrom});
         });
     }

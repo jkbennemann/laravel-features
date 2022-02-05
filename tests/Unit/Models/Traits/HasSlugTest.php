@@ -6,9 +6,9 @@ namespace Jkbennemann\Features\Tests\Unit\Models\Traits;
 
 use Jkbennemann\Features\Models\Feature;
 
-it('assigns a feature to a user', function(): void {
+it('assigns a feature to a user', function (): void {
     $feature = Feature::factory()->create([
-        'name' => 'Test Feature'
+        'name' => 'Test Feature',
     ]);
 
     expect($feature->slug)

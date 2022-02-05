@@ -29,7 +29,7 @@ class Party extends Model
         'name',
         'slug',
         'description',
-        'status'
+        'status',
     ];
 
     public function addFeature(Feature $feature): void
