@@ -41,7 +41,7 @@ class PartyAddCommand extends Command
 
     private function parseStatus(string $status): int
     {
-        if (!is_numeric($status)) {
+        if (!is_numeric($status) && !empty($status)) {
             $this->error('Status has to be one of [0,1]');
         }
 
