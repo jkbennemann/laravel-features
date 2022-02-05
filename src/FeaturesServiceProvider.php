@@ -3,9 +3,9 @@
 namespace Jkbennemann\Features;
 
 use Illuminate\Support\Facades\Blade;
+use Jkbennemann\Features\Commands\FeaturesCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Jkbennemann\Features\Commands\FeaturesCommand;
 
 class FeaturesServiceProvider extends PackageServiceProvider
 {
@@ -26,10 +26,10 @@ class FeaturesServiceProvider extends PackageServiceProvider
 
     public function bootingPackage()
     {
-        Blade::directive('feature', static function($feature) {
+        Blade::directive('feature', static function ($feature) {
             return "<?php if (auth()->check() && auth()->user()->hasFeature($feature)): ?>";
         });
-        Blade::directive('endfeature', static function($feature) {
+        Blade::directive('endfeature', static function ($feature) {
             return "<?php if (auth()->check() && auth()->user()->hasFeature($feature)): ?>";
         });
 

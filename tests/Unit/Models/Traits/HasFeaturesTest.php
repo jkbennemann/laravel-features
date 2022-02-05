@@ -10,11 +10,11 @@ use Jkbennemann\Features\Models\Feature;
 use Jkbennemann\Features\Models\Party;
 use Jkbennemann\Features\Tests\Stubs\User;
 
-it('can assign a feature to a user', function(): void {
+it('can assign a feature to a user', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
 
     $feature = Feature::factory()->create();
@@ -26,11 +26,11 @@ it('can assign a feature to a user', function(): void {
         ->toBeTrue();
 });
 
-it('can assign multiple feature to a user', function(): void {
+it('can assign multiple feature to a user', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
 
     $feature = Feature::factory()->create();
@@ -52,11 +52,11 @@ it('can assign multiple feature to a user', function(): void {
         ->toBeFalse();
 });
 
-it('can remove a feature from a user', function(): void {
+it('can remove a feature from a user', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
 
     $feature = Feature::factory()->create();
@@ -73,11 +73,11 @@ it('can remove a feature from a user', function(): void {
         ->toBeFalse();
 });
 
-it('can remove multiple features from a user', function(): void {
+it('can remove multiple features from a user', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
 
     $feature = Feature::factory()->create();
@@ -105,11 +105,11 @@ it('can remove multiple features from a user', function(): void {
         ->toBeFalse();
 });
 
-it('can remove specific features from a user', function(): void {
+it('can remove specific features from a user', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
 
     $feature = Feature::factory()->create();
@@ -136,15 +136,15 @@ it('can remove specific features from a user', function(): void {
         ->toBeTrue();
 });
 
-it('can check for a direct and active feature', function(): void {
+it('can check for a direct and active feature', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
 
     $feature = Feature::factory()->create([
-        'status' => FeatureStatus::ACTIVE
+        'status' => FeatureStatus::ACTIVE,
     ]);
 
     $user->giveFeature($feature->slug);
@@ -154,15 +154,15 @@ it('can check for a direct and active feature', function(): void {
         ->toBeTrue();
 });
 
-it('can check for a direct and inactive feature', function(): void {
+it('can check for a direct and inactive feature', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
 
     $feature = Feature::factory()->create([
-        'status' => FeatureStatus::INACTIVE
+        'status' => FeatureStatus::INACTIVE,
     ]);
 
     $user->giveFeature($feature->slug);
@@ -179,11 +179,11 @@ it('can check for a direct and inactive feature', function(): void {
 });
 
 //join party
-it('can join a user to a party', function(): void {
+it('can join a user to a party', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
     $party = Party::factory()->create();
 
@@ -196,11 +196,11 @@ it('can join a user to a party', function(): void {
         ->toHaveCount(1);
 });
 
-it('can join a user to multiple parties', function(): void {
+it('can join a user to multiple parties', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
     $party = Party::factory()->create();
     $party2 = Party::factory()->create();
@@ -216,11 +216,11 @@ it('can join a user to multiple parties', function(): void {
 });
 
 //leave party
-it('can remove a user from a party', function(): void {
+it('can remove a user from a party', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
     $party = Party::factory()->create();
     $user->addToParty($party->slug);
@@ -234,11 +234,11 @@ it('can remove a user from a party', function(): void {
         ->toHaveCount(0);
 });
 
-it('can remove a user from multiple parties', function(): void {
+it('can remove a user from multiple parties', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
     $party = Party::factory()->create();
     $party2 = Party::factory()->create();
@@ -255,11 +255,11 @@ it('can remove a user from multiple parties', function(): void {
         ->toHaveCount(0);
 });
 
-it('can remove a user from specific parties', function(): void {
+it('can remove a user from specific parties', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
     $party = Party::factory()->create();
     $party2 = Party::factory()->create();
@@ -279,11 +279,11 @@ it('can remove a user from specific parties', function(): void {
 });
 
 //belongs to party
-it('can check if a user belongs to a party', function(): void {
+it('can check if a user belongs to a party', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
     $party = Party::factory()->create();
 
@@ -298,11 +298,11 @@ it('can check if a user belongs to a party', function(): void {
         ->toBeTrue();
 });
 
-it('can check if a user belongs to at least one party of', function(): void {
+it('can check if a user belongs to at least one party of', function (): void {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
     $party = Party::factory()->create();
     $party2 = Party::factory()->create();
@@ -319,7 +319,7 @@ it('can check if a user has features through a party', function () {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
     $feature = Feature::factory()->create();
     $party = Party::factory()->create();
@@ -340,10 +340,10 @@ it('can check if a user has only active features through a party', function () {
     $user = User::create([
         'name' => 'test user',
         'email' => 'test@user.com',
-        'password' => Hash::make('password')
+        'password' => Hash::make('password'),
     ]);
     $feature = Feature::factory()->create([
-        'status' => FeatureStatus::INACTIVE
+        'status' => FeatureStatus::INACTIVE,
     ]);
     $party = Party::factory()->create();
 

@@ -30,7 +30,7 @@ it('can create a model with different attributes', function () {
 
 it('will activate a feature', function () {
     $feature = Feature::factory()->create([
-        'status' => FeatureStatus::INACTIVE
+        'status' => FeatureStatus::INACTIVE,
     ]);
 
     expect(Feature::active()->get())
@@ -46,7 +46,7 @@ it('will activate a feature', function () {
 
 it('will deactivate a feature', function () {
     $feature = Feature::factory()->create([
-        'status' => FeatureStatus::ACTIVE
+        'status' => FeatureStatus::ACTIVE,
     ]);
 
     expect(Feature::active()->get())
@@ -62,7 +62,7 @@ it('will deactivate a feature', function () {
 
 it('will return the parties relation', function () {
     $feature = Feature::factory()->create([
-        'status' => FeatureStatus::ACTIVE
+        'status' => FeatureStatus::ACTIVE,
     ]);
     $party = Party::factory()->create();
 

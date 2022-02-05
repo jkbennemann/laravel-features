@@ -45,9 +45,9 @@ trait HasFeatures
     public function hasFeature(string $feature, bool $activeOnly = true): bool
     {
         return $this->hasFeatureThroughParty(
-                feature: $feature,
-                activeOnly: $activeOnly,
-            ) || $this->hasFeatureDirect(
+            feature: $feature,
+            activeOnly: $activeOnly,
+        ) || $this->hasFeatureDirect(
                 feature: $feature,
                 activeOnly: $activeOnly,
             );
@@ -72,7 +72,7 @@ trait HasFeatures
     {
         if ($activeOnly) {
             $feature = Feature::with(['parties'])->active()->slug($feature)->first();
-        } else  {
+        } else {
             $feature = Feature::with(['parties'])->slug($feature)->first();
         }
 

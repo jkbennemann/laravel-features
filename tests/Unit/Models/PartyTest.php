@@ -30,7 +30,7 @@ it('can create a model with different attributes', function () {
 
 it('can add a feature', function () {
     $party = Party::factory()->create([
-        'status' => PartyStatus::INACTIVE
+        'status' => PartyStatus::INACTIVE,
     ]);
     $feature = Feature::factory()->create();
 
@@ -45,7 +45,7 @@ it('can add a feature', function () {
 
 it('can remove a feature', function () {
     $party = Party::factory()->create([
-        'status' => PartyStatus::INACTIVE
+        'status' => PartyStatus::INACTIVE,
     ]);
     $feature = Feature::factory()->create();
     $party->addFeature($feature);
@@ -61,7 +61,7 @@ it('can remove a feature', function () {
 
 it('will return the parties relation', function () {
     $party = Party::factory()->create([
-        'status' => PartyStatus::ACTIVE
+        'status' => PartyStatus::ACTIVE,
     ]);
     $feature = Feature::factory()->create();
     $party->addFeature($feature);
@@ -72,7 +72,7 @@ it('will return the parties relation', function () {
 
 it('can check for a given feature', function () {
     $party = Party::factory()->create([
-        'status' => PartyStatus::ACTIVE
+        'status' => PartyStatus::ACTIVE,
     ]);
     $feature = Feature::factory()->create();
     $party->addFeature($feature);
@@ -83,10 +83,10 @@ it('can check for a given feature', function () {
 
 it('can check for a given feature by slug', function () {
     $party = Party::factory()->create([
-        'status' => PartyStatus::ACTIVE
+        'status' => PartyStatus::ACTIVE,
     ]);
     $feature = Feature::factory()->create([
-        'name' => 'slug test'
+        'name' => 'slug test',
     ]);
 
     $party->addFeature($feature);

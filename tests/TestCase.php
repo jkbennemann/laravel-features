@@ -3,8 +3,8 @@
 namespace Jkbennemann\Features\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Jkbennemann\Features\FeaturesServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
@@ -31,7 +31,6 @@ class TestCase extends Orchestra
         $this->loadLaravelMigrations();
 
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-
     }
 
     public function getEnvironmentSetUp($app)
