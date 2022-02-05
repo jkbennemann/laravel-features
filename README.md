@@ -1,7 +1,9 @@
 # Laravel Features
 
 This packages provides a simple to use possibility to introduce functionality (`features`) 
-to specific users or groups of users (`parties`)
+to specific users or groups of users (`parties`).
+
+This concept is also known as FeatureFlags or FeatureToggles.
 
 ## Installation
 
