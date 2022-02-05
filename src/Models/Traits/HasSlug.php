@@ -18,8 +18,8 @@ trait HasSlug
         static::creating(static function (Model $model) {
             $model->{HasSlug::$slug} = self::normalize($model->{HasSlug::$slugFrom});
 
-            Gate::define($model->{HasSlug::$slug}, function($user, $onlyActive = true) use ($model){
-               return $user->hasFeature($model->slug, $onlyActive);
+            Gate::define($model->{HasSlug::$slug}, function ($user, $onlyActive = true) use ($model) {
+                return $user->hasFeature($model->slug, $onlyActive);
             });
         });
     }
