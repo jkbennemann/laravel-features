@@ -31,7 +31,7 @@ class Feature extends Model
     ];
 
     protected $casts = [
-        'status' => 'int'
+        'status' => 'int',
     ];
 
     public function isActive(): bool
