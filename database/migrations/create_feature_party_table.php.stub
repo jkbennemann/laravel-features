@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('feature_party', function (Blueprint $table) {
-            $table->unsignedBigInteger('feature_id');
-            $table->unsignedBigInteger('party_id');
+            $type = config('features.user_model_type') === 'uuid' ? 'uuid' : 'unsignedBigInteger';
+
+            $table->{$type}('feature_id');
+            $table->{$type}('party_id');
             $table->foreign('feature_id')->references('id')->on('feature')->onDeleteCascade();
             $table->foreign('party_id')->references('id')->on('party')->onDeleteCascade();
 
@@ -27,3 +29,4 @@ return new class extends Migration
         Schema::dropIfExists('feature_party');
     }
 };
+
