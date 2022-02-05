@@ -32,6 +32,10 @@ class Party extends Model
         'status',
     ];
 
+    protected $casts = [
+        'status' => 'int',
+    ];
+
     public function addFeature(Feature $feature): void
     {
         $this->features()->attach($feature);
