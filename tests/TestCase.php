@@ -1,10 +1,10 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Jkbennemann\Features\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use VendorName\Skeleton\SkeletonServiceProvider;
+use Jkbennemann\Features\FeaturesServiceProvider;
 
 class TestCase extends Orchestra
 {
