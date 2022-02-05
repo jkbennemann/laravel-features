@@ -15,9 +15,9 @@ class FeatureActivateCommand extends Command
     {
         $identifier = $this->argument('identifier');
 
-        if (is_numeric($identifier)) {
-            $feature = Feature::find($identifier);
-        } else {
+        $feature = Feature::find($identifier);
+
+        if (! $feature) {
             $feature = Feature::where('slug', $identifier)->first();
         }
 
