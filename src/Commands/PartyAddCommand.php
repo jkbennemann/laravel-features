@@ -4,9 +4,7 @@ namespace Jkbennemann\Features\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
-use Jkbennemann\Features\Models\Enums\FeatureStatus;
 use Jkbennemann\Features\Models\Enums\PartyStatus;
-use Jkbennemann\Features\Models\Feature;
 use Jkbennemann\Features\Models\Party;
 
 class PartyAddCommand extends Command
@@ -41,7 +39,7 @@ class PartyAddCommand extends Command
 
     private function parseStatus(string $status): int
     {
-        if (!is_numeric($status)) {
+        if (! is_numeric($status)) {
             $this->error('Status has to be one of [0,1]');
         }
 

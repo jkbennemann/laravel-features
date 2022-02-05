@@ -39,7 +39,7 @@ class FeatureAddCommand extends Command
 
     private function parseStatus(string $status): int
     {
-        if (!is_numeric($status)) {
+        if (! is_numeric($status)) {
             $this->error('Status has to be one of [0,1,2,3]');
         }
 
