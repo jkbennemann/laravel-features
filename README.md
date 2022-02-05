@@ -83,6 +83,26 @@ $user->belongsToParty('party-slug');    //checks if the user belongs to the part
 $user->inParty('party-slug');           //checks if the user belongs to the party
 ```
 
+## Commands
+
+```bash
+# Activate a feature
+php artisan features:activate {id|slug}
+
+# Deactivate a feature
+php artisan features:deactivate {id|slug}
+```
+
+
+## Ideas
+
+- [x] Blade directives for `@feature`, `@party`
+- [x] Command to update feature status
+- [ ] Gate/Policy support
+- [ ] Feature expiration to tackle [carying costs](https://martinfowler.com/articles/feature-toggles.html#WorkingWithFeature-flaggedSystems)
+- [ ] Support for UUIDs for `User` model
+- [ ] Management for Parties/Features using Livewire
+
 ## Testing
 
 ```bash
