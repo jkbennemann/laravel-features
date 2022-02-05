@@ -17,7 +17,7 @@ class FeatureDeactivateCommand extends Command
 
         $feature = Feature::find($identifier);
 
-        if (!$feature) {
+        if (! $feature) {
             $feature = Feature::where('slug', $identifier)->first();
         }
 
