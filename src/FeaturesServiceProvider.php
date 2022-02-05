@@ -56,9 +56,9 @@ class FeaturesServiceProvider extends PackageServiceProvider
         });
 
         Feature::all()->each(function(Feature $feature) {
-            Gate::define($feature->slug, function ($user) use ($feature) {
+            Gate::define($feature->slug, function ($user, $onlyActive = true) use ($feature) {
                 if (method_exists($user, 'hasFeature')) {
-                    return $user->hasFeature($feature, true);
+                    return $user->hasFeature($feature, $onlyActive);
                 }
 
                 return false;

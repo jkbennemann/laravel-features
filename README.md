@@ -105,12 +105,22 @@ php artisan feature:deactivate {id|slug}
 php artisan party:deactivate {id|slug}
 ```
 
+## Gates
+
+```bash
+# Check feature
+$user->can('feature-slug');   //allows to check using laravel gates
+$user->can('feature-slug', true);    //validates if feature is ACTIVE
+$user->can('feature-slug', false);    //ignores status of feature
+```
+
+
 
 ## Ideas
 
 - [x] Blade directives for `@feature`, `@party`
 - [x] Command to update feature status
-- [ ] Gate/Policy support
+- [x] Gate support
 - [ ] Feature expiration to tackle [carying costs](https://martinfowler.com/articles/feature-toggles.html#WorkingWithFeature-flaggedSystems)
 - [ ] Support for UUIDs for `User` model
 - [ ] Management for Parties/Features using Livewire

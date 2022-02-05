@@ -21,7 +21,7 @@ it('makes available gates for each feature', function() {
     ]);
     $user->giveFeature($feature);
 
-    expect($user->can($feature->slug))->toBeTrue();
+    expect($user->can($feature->slug, true))->toBeTrue();
 });
 
 it('makes gate unavailable for each feature if not active', function() {
