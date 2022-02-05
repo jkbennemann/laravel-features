@@ -12,10 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('party_user', function (Blueprint $table) {
-            $table->unsignedBigInteger('party_id');
-            $table->unsignedBigInteger('user_id');
+            $type = config('features.user_model_type') ? 'uuid' : 'unsignedBigInteger';
+            $userTable = config('features.user_model') ?: 'users';
+
+            $table->{$type}('party_id');
+            $table->{$type}('user_id');
             $table->foreign('party_id')->references('id')->on('party')->onDeleteCascade();
-            $table->foreign('user_id')->references('id')->on('users')->onDeleteCascade();
+            $table->foreign('user_id')->references('id')->on($userTable)->onDeleteCascade();
 
             $table->primary(['party_id', 'user_id']);
             $table->timestamps();
