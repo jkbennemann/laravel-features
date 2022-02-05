@@ -14,7 +14,7 @@ it('it can activate a feature with the command', function () {
         'status' => FeatureStatus::INACTIVE,
     ]);
 
-    expect(Artisan::call('feature:activate', ['identifier' => $feature->getKey()]))
+    expect(Artisan::call('feature:activate', ['identifier' => 1]))
         ->toBe(0);
 
     $feature = $feature->fresh();
