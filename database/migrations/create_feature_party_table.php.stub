@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Jkbennemann\Features\Models\Enums\FeatureStatus;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('feature_party', function (Blueprint $table) {
+            $table->unsignedBigInteger('feature_id');
+            $table->unsignedBigInteger('party_id');
+            $table->foreign('feature_id')->references('id')->on('feature')->onDeleteCascade();
+            $table->foreign('party_id')->references('id')->on('party')->onDeleteCascade();
+
+            $table->primary(['feature_id', 'party_id']);
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('feature_party');
+    }
+};
