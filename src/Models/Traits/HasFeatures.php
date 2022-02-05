@@ -48,9 +48,9 @@ trait HasFeatures
             feature: $feature,
             activeOnly: $activeOnly,
         ) || $this->hasFeatureDirect(
-                feature: $feature,
-                activeOnly: $activeOnly,
-            );
+            feature: $feature,
+            activeOnly: $activeOnly,
+        );
     }
 
     public function hasFeatureDirect(string $feature, bool $activeOnly = true): bool
