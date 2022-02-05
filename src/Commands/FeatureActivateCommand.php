@@ -21,7 +21,7 @@ class FeatureActivateCommand extends Command
             $feature = Feature::where('slug', $identifier)->first();
         }
 
-        if (!$feature) {
+        if (! $feature) {
             $this->error('Not feature found');
 
             return self::FAILURE;
