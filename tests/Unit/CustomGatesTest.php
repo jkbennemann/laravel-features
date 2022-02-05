@@ -9,9 +9,9 @@ use Jkbennemann\Features\Models\Enums\FeatureStatus;
 use Jkbennemann\Features\Models\Feature;
 use Jkbennemann\Features\Tests\Stubs\User;
 
-it('makes available gates for each feature', function() {
+it('makes available gates for each feature', function () {
     $feature = Feature::factory()->create([
-        'status' => FeatureStatus::ACTIVE
+        'status' => FeatureStatus::ACTIVE,
     ]);
 
     $user = User::create([
@@ -24,9 +24,9 @@ it('makes available gates for each feature', function() {
     expect($user->can($feature->slug))->toBeTrue();
 });
 
-it('makes gate unavailable for each feature if not active', function() {
+it('makes gate unavailable for each feature if not active', function () {
     $feature = Feature::factory()->create([
-        'status' => FeatureStatus::INACTIVE
+        'status' => FeatureStatus::INACTIVE,
     ]);
 
     $user = User::create([
@@ -39,9 +39,9 @@ it('makes gate unavailable for each feature if not active', function() {
     expect($user->can($feature->slug))->toBeFalse();
 });
 
-it('can enable gate for each feature after getting active', function() {
+it('can enable gate for each feature after getting active', function () {
     $feature = Feature::factory()->create([
-        'status' => FeatureStatus::INACTIVE
+        'status' => FeatureStatus::INACTIVE,
     ]);
 
     $user = User::create([
