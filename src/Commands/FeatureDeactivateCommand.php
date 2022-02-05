@@ -9,15 +9,15 @@ class FeatureDeactivateCommand extends Command
 {
     public $signature = 'feature:deactivate {identifier}';
 
-    public $description = 'Deactivates a feature';
+    public $description = 'Dectivates a feature';
 
     public function handle(): int
     {
         $identifier = $this->argument('identifier');
 
-        $feature = Feature::find($identifier);
-
-        if (! $feature) {
+        if (is_numeric($identifier)) {
+            $feature = Feature::find($identifier);
+        } else {
             $feature = Feature::where('slug', $identifier)->first();
         }
 

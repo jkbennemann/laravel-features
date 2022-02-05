@@ -8,7 +8,6 @@ use Jkbennemann\Features\Commands\FeatureActivateCommand;
 use Jkbennemann\Features\Commands\FeatureAddCommand;
 use Jkbennemann\Features\Commands\FeatureDeactivateCommand;
 use Jkbennemann\Features\Commands\FeatureListCommand;
-use Jkbennemann\Features\Commands\InstallCommand;
 use Jkbennemann\Features\Commands\PartyAddCommand;
 use Jkbennemann\Features\Commands\PartyListCommand;
 use Jkbennemann\Features\Models\Feature;
@@ -29,7 +28,6 @@ class FeaturesServiceProvider extends PackageServiceProvider
                 PartyAddCommand::class,
                 FeatureListCommand::class,
                 PartyListCommand::class,
-                InstallCommand::class,
             )
             ->hasMigrations(
                 'create_feature_table',

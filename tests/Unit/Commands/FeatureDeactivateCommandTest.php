@@ -14,7 +14,7 @@ it('it can deactivate a feature with the command', function () {
         'status' => FeatureStatus::ACTIVE,
     ]);
 
-    expect(Artisan::call('feature:deactivate', ['identifier' => $feature->getKey()]))
+    expect(Artisan::call('feature:deactivate', ['identifier' => 1]))
         ->toBe(0);
 
     $feature = $feature->fresh();
