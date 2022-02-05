@@ -121,6 +121,7 @@ $user->can('feature-slug', false);    //ignores status of feature
 - [x] Blade directives for `@feature`, `@party`
 - [x] Command to update feature status
 - [x] Gate support
+- [ ] Middleware to secure requests for features/parties
 - [ ] Feature expiration to tackle [carying costs](https://martinfowler.com/articles/feature-toggles.html#WorkingWithFeature-flaggedSystems)
 - [ ] Support for UUIDs for `User` model
 - [ ] Management for Parties/Features using Livewire
