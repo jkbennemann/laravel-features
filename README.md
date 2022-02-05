@@ -86,11 +86,21 @@ $user->inParty('party-slug');           //checks if the user belongs to the part
 ## Commands
 
 ```bash
-# Activate a feature
-php artisan features:activate {id|slug}
+# Create a new feature/party
+php artisan feature:add {name} {description?} {--status}
+php artisan party:add {name} {description?} {--status}
 
-# Deactivate a feature
-php artisan features:deactivate {id|slug}
+# List features/parties
+php artisan feature:list
+php artisan party:list
+
+# Activate a feature/party
+php artisan feature:activate {id|slug}
+php artisan party:activate {id|slug}
+
+# Deactivate a feature/party
+php artisan feature:deactivate {id|slug}
+php artisan party:deactivate {id|slug}
 ```
 
 
