@@ -14,25 +14,25 @@ class FeatureListCommand extends Command
 
     public function handle(): int
     {
-       $features = Feature::all();
+        $features = Feature::all();
 
-       $this->table(['ID', 'Name', 'Slug', 'Status', 'Description', 'Created'], $features->map(function(Feature $feature) {
-           return [
+        $this->table(['ID', 'Name', 'Slug', 'Status', 'Description', 'Created'], $features->map(function (Feature $feature) {
+            return [
                $feature->id,
                $feature->name,
                $feature->slug,
                FeatureStatus::getLabel($feature->status),
                $feature->description,
-               $feature->created_at->format('d.m.Y H:i:s (T)')
+               $feature->created_at->format('d.m.Y H:i:s (T)'),
            ];
-       }));
+        }));
 
         return self::SUCCESS;
     }
 
     private function parseStatus(string $status = null): int
     {
-        if (!is_numeric($status) && !empty($status)) {
+        if (! is_numeric($status) && ! empty($status)) {
             $this->error('Status has to be one of [0,1,2,3]');
         }
 

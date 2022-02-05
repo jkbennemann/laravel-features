@@ -15,26 +15,27 @@ class PartyListCommand extends Command
 
     public function handle(): int
     {
-       $parties = Party::all();
+        $parties = Party::all();
 
-       $this->table(['ID', 'Name', 'Slug', 'Status', 'Description', 'Created'], $parties->map(function(Party $party
-       ) {
-           return [
+        $this->table(['ID', 'Name', 'Slug', 'Status', 'Description', 'Created'], $parties->map(function (
+            Party $party
+        ) {
+            return [
                $party->id,
                $party->name,
                $party->slug,
                PartyStatus::getLabel($party->status),
                $party->description,
-               $party->created_at->format('d.m.Y H:i:s (T)')
+               $party->created_at->format('d.m.Y H:i:s (T)'),
            ];
-       }));
+        }));
 
         return self::SUCCESS;
     }
 
     private function parseStatus(string $status = null): int
     {
-        if (!is_numeric($status) && !empty($status)) {
+        if (! is_numeric($status) && ! empty($status)) {
             $this->error('Status has to be one of [0,1,2,3]');
         }
 
