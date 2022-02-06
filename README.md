@@ -17,7 +17,14 @@ After you have installed the package run the following command start the
 installation routine
 
 ```bash
+#Interactive installation
 php artisan feature:install
+
+#Command if you are using uuids for your model
+php artisan feature:install --uuid
+
+#Command if you are using unsigned big integer (id)
+php artisan feature:install --id
 ```
 
 ## Usage
