@@ -1,10 +1,13 @@
 {
     "name": "jkbennemann/laravel-features",
-    "description": "This is my package laravel-features",
+    "description": "The package provides a convenient way to introduce new functionalities into your application by simply switching them on or off or granting access only to specific groups of users.",
+    "version": "0.1.0",
     "keywords": [
         "jkbennemann",
         "laravel",
-        "laravel-features"
+        "laravel-features",
+        "feature-switch",
+        "feature-toggles",
     ],
     "homepage": "https://github.com/jkbennemann/laravel-features",
     "license": "MIT",
