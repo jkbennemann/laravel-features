@@ -82,9 +82,9 @@ trait HasFeatures
         }
 
         if ($activeOnly) {
-            $feature = Feature::active()->slug($feature)->first();
+            $feature = Feature::active()->slugOrName($feature)->first();
         } else {
-            $feature = Feature::slug($feature)->first();
+            $feature = Feature::slugOrName($feature)->first();
         }
 
         if (is_null($feature)) {
@@ -111,9 +111,9 @@ trait HasFeatures
         }
 
         if ($activeOnly) {
-            $feature = Feature::with(['parties'])->active()->slug($feature)->first();
+            $feature = Feature::with(['parties'])->active()->slugOrName($feature)->first();
         } else {
-            $feature = Feature::with(['parties'])->slug($feature)->first();
+            $feature = Feature::with(['parties'])->slugOrName($feature)->first();
         }
 
         if (is_null($feature)) {

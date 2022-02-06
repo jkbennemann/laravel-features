@@ -10,6 +10,11 @@ use Jkbennemann\Features\Models\Builders\Traits\HasByStatus;
 class FeatureBuilder extends Builder
 {
     use HasByStatus;
-    use HasBySlug;
-    use HasByName;
+
+    public function slugOrName(string $value): self
+    {
+        $this->where('slug', $value)->orWhere('name', $value);
+
+        return $this;
+    }
 }
