@@ -244,12 +244,11 @@ trait HasFeatures
 
         if ($activeOnly) {
             return $features->filter(
-                fn($value) => $value->status === FeatureStatus::ACTIVE
+                fn ($value) => $value->status === FeatureStatus::ACTIVE
             );
         }
 
         return $features;
-
     }
 
     public function parties(): BelongsToMany

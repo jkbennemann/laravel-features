@@ -30,7 +30,7 @@ class InstallCommand extends Command
                     self::OPTIONS,
                     'id'
                 ));
-            } while (!in_array($chosenOption, self::OPTIONS, true));
+            } while (! in_array($chosenOption, self::OPTIONS, true));
         }
 
         $this->callSilent('vendor:publish', ['--tag' => 'features-config', '--force' => true]);
