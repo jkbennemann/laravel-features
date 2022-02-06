@@ -7,6 +7,8 @@ namespace Jkbennemann\Features\Models\Traits;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
+use Jkbennemann\Features\Models\Enums\FeatureStatus;
 use Jkbennemann\Features\Models\Feature;
 use Jkbennemann\Features\Models\Party;
 
@@ -219,6 +221,35 @@ trait HasFeatures
             Feature::class,
             'feature_user'
         );
+    }
+
+    public function allFeatures(bool $activeOnly = true): Collection
+    {
+        $query = DB::select("
+        SELECT * FROM (
+            (
+                SELECT fp.feature_id AS id, pu.user_id AS `user`
+                FROM feature_party fp
+                    JOIN party_user pu ON pu.party_id = fp.party_id
+            )
+            UNION
+            (
+                SELECT fu.feature_id AS id, fu.user_id AS `user`
+                FROM feature_user fu
+            )
+        ) AS result
+        WHERE user = ?;", [$this->getKey()]);
+
+        $features = Feature::hydrate($query)->fresh();
+
+        if ($activeOnly) {
+            return $features->filter(
+                fn($value) => $value->status === FeatureStatus::ACTIVE
+            );
+        }
+
+        return $features;
+
     }
 
     public function parties(): BelongsToMany

@@ -56,6 +56,9 @@ $active = $user->hasFeature('feature-slug');  //you may provide the slug of a fe
 $active = $user->hasFeature('feature-slug', false); //provide false ignore the check for active features
 $active = $user->hasFeatureThroughParty('feature-slug');    //checks if a feature is granted through a party
 
+$features = $user->allFeatures();   //returns all features
+$features = $user->allFeatures(false);   //returns all features without checking the status
+
 $user->giveFeature('feature-slug');     //add specific feature to a user
 $user->removeFeature('feature-slug');   //remove specific feature
 

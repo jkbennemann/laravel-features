@@ -17,16 +17,18 @@ class PartyListCommand extends Command
     {
         $parties = Party::all();
 
-        $this->table(['ID', 'Name', 'Slug', 'Status', 'Description', 'Created'], $parties->map(function (
+        $this->table(['ID', 'Name', 'Slug', 'Status', 'Features', 'Users', 'Description', 'Created'], $parties->map(function (
             Party $party
         ) {
             return [
-               $party->id,
-               $party->name,
-               $party->slug,
-               PartyStatus::getLabel($party->status),
-               $party->description,
-               $party->created_at->format('d.m.Y H:i:s (T)'),
+                $party->id,
+                $party->name,
+                $party->slug,
+                PartyStatus::getLabel($party->status),
+                $party->features()->count('id'),
+                $party->users()->count('id'),
+                $party->description,
+                $party->created_at->format('d.m.Y H:i:s (T)'),
            ];
         }));
 
