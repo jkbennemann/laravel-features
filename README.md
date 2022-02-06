@@ -27,6 +27,26 @@ php artisan feature:install --uuid
 php artisan feature:install --id
 ```
 
+### Last steps
+
+Migrate database files
+```bash
+php artisan migrate
+```
+Adding `HasFeatures` trait to your `User` model 
+```php
+//..
+use Jkbennemann\Features\Models\Traits\HasFeatures;
+
+class User extends Model
+{
+    use HasFeatures;
+    //..
+}
+```
+
+_After these steps you're good to go._
+
 ## Usage
 
 ```php
@@ -92,7 +112,7 @@ php artisan party:deactivate {id|slug}
 
 ## Gates
 
-```bash
+```php
 # Check feature
 $user->can('feature-slug');   //allows to check using laravel gates
 $user->can('feature-slug', true);    //validates if feature is ACTIVE
