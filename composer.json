@@ -7,7 +7,7 @@
         "laravel",
         "laravel-features",
         "feature-switch",
-        "feature-toggles",
+        "feature-toggles"
     ],
     "homepage": "https://github.com/jkbennemann/laravel-features",
     "license": "MIT",
