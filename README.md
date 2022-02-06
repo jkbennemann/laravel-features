@@ -47,6 +47,25 @@ class User extends Model
 
 _After these steps you're good to go._
 
+## Common Use-Cases
+### 1. A/B testing
+1. Add you `features` which should be tested 
+2. Create two `parties` and add users to them
+3. Assign features to the parties or single users
+### 2. A group of Beta-Testers
+1. Add you `features` which should be beta-tested
+2. Create a new `party` fpr you beta-testers
+3. Assign the users to that party
+### 3. Preparation for an upcoming feature
+1. Add a new `feature` which should be `INACTIVE` for now
+2. Complete development and optionally create a special group for users e.g.  
+developers that should still be able to access that new feature
+3. Extend that feature to beta-testers or remove feature-switch
+### 4. Functionality for specific users like administrators
+1. Create a new `party` for administrators
+2. Assign all `features` which should be explicitly available for them to that party
+3. Add all relevant users to that party.
+
 ## Usage
 
 ```php
