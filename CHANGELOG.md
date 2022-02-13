@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-features` will be documented in this file.
 
+## Support Laravel 9 - 2022-02-13
+
+Add support to Laravel 9
+
 ## Initial Version - 2022-02-11
 
 This is the first publicly available version of this project.
