@@ -145,6 +145,7 @@ $user->can('feature-slug', false);    //ignores status of feature
 - [x] Command to update feature status
 - [x] Gate support
 - [x] Support for UUIDs for `User` model
+- [ ] Support `can()` method to use accept a `Feature` model
 - [ ] Middleware to secure requests for features/parties
 - [ ] Feature expiration to tackle [carying costs](https://martinfowler.com/articles/feature-toggles.html#WorkingWithFeature-flaggedSystems)
 - [ ] Management for Parties/Features using Livewire
